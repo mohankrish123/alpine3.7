@@ -1,0 +1,2 @@
+# Command to start the container
+docker run -p 6379:6379 -p 80:80 -p 2222:22 -p 5672:5672 -p 15672:15672 -p 9200:9200 -p 9300:9300 -p 8080:8080 --name=optfinal2 -itd dockerhub.kensium.com/alpine3.7/optimized_final

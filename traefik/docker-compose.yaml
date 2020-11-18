@@ -1,0 +1,23 @@
+version: '2'
+services:
+  traefik:
+    image: traefik:v2.0
+    container_name: traefik2.0
+    restart: always
+    ports:
+      - "80:80"
+      - "8080:8080"
+      - "443:443"
+    tty: true
+    volumes:
+      - $PWD/traefik.yml:/etc/traefik/traefik.yml
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      optimizedfinal_millervet:
+       ipv4_address: 10.0.0.3
+volumes:
+  media:
+    external: true #This uses the external volume that is already exists.
+networks: 
+  optimizedfinal_millervet: # Here we are customizing a network millervet, we can use external if we want to use an existing network.
+    external: true
