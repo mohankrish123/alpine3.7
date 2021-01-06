@@ -1,7 +1,7 @@
 version: '2'
 services:
   millervet:
-    image: test
+    image: dockerhub.kensium.com/alpine3.7/optimized_final:latest
     container_name: ioncube 
     restart: always
     ports:

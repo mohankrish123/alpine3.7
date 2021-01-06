@@ -3,7 +3,7 @@
 /usr/sbin/crond &
 nginx -g 'daemon off;' &
 php-fpm7 &
-su - elasticsearch -c "/usr/share/elasticsearch/bin/elasticsearch &" 
+chown -R elasticsearch:elasticsearch /usr/share/elasticsearch && su - elasticsearch -c "/usr/share/elasticsearch/bin/elasticsearch &" 
 redis-server /etc/redis.conf &
 /opt/rabbitmq/sbin/rabbitmq-plugins enable --offline rabbitmq_management &
 /opt/rabbitmq/sbin/rabbitmq-server &

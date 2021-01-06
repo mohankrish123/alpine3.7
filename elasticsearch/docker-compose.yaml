@@ -1,0 +1,23 @@
+version: '2'
+services:
+  elastic:
+    image: elastic:latest
+    container_name: elastic
+    restart: always
+    ports:
+      - "9200:9200"
+    tty: true
+    volumes:
+      - ./esdata:/usr/share/elasticsearch/data
+      - ./logs/elasticsearch.logs:/usr/share/elasticsearch/logs
+    networks:
+      elastic:
+       ipv4_address: 10.0.0.2
+networks: 
+  elastic: # Here we are customizing a network millervet, we can use external if we want to use an existing network.
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.0.0.0/16
+          gateway: 10.0.0.1
+          
